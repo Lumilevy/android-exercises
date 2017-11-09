@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class BookActivity extends AppCompatActivity {
 
-    private static final String BOOK = "BOOK";
+    static final String BOOK = "BOOK";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
