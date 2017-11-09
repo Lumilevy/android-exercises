@@ -1,5 +1,6 @@
 package fr.android.androidexercises;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,14 +26,20 @@ public class LibraryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Replace with startActivityForResult() to start BookActivity
-                Toast.makeText(LibraryActivity.this, R.string.toast_todo, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(LibraryActivity.this, R.string.toast_todo, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LibraryActivity.this, BookActivity.class);
+                startActivityForResult(intent, 1);
             }
         });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO get back book name
+        if(requestCode==1 && resultCode == Activity.RESULT_OK) {
+            String book = data.getStringExtra("book name");
+            Toast.makeText(this, book, Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override
